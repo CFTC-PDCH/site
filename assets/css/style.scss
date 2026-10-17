@@ -1,0 +1,9 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Optionnel : cache aussi le footer */
+footer {
+  display: none !important;
+}
