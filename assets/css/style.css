@@ -1,0 +1,185 @@
+/* ==========================================================================
+   CFTC des personnels de Pas de Calais habitat – feuille de style
+   Sommaire : 1. Variables · 2. Base · 3. En-tête · 4. Bandeau d'accueil
+              5. Post-it · 6. Contacts · 7. Pied de page · 8. Page 404
+   ========================================================================== */
+
+/* 1. VARIABLES ----------------------------------------------------------- */
+:root {
+  --bleu-fonce: #17348f;
+  --bleu: #2563c4;
+  --bleu-clair: #e8f0fb;
+  --texte: #1c2430;
+  --blanc: #fff;
+  --postit: #fff176;
+  --largeur-max: 72rem;
+  --duree-diapo: 6s;            /* temps d'affichage d'une photo du bandeau */
+}
+
+/* 2. BASE ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--texte);
+  background: var(--blanc);
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--bleu); }
+a:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 100;
+  background: var(--blanc); padding: .5rem 1rem;
+}
+.skip-link:focus { left: 0; }
+
+.button {
+  display: inline-block;
+  padding: .8rem 1.6rem;
+  border-radius: 2rem;
+  background: var(--bleu);
+  color: var(--blanc);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--bleu);
+  transition: background .2s, color .2s;
+}
+.button:hover { background: var(--bleu-fonce); border-color: var(--bleu-fonce); }
+.button--light { background: var(--blanc); color: var(--bleu-fonce); border-color: var(--blanc); }
+.button--light:hover { background: var(--bleu-clair); color: var(--bleu-fonce); border-color: var(--bleu-clair); }
+
+/* 3. EN-TÊTE ------------------------------------------------------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: .5rem 2rem;
+  padding: .5rem 1.5rem;
+  background: var(--blanc);
+  box-shadow: 0 2px 8px rgb(0 0 0 / .12);
+}
+.site-header__logo img { display: block; height: 3.5rem; width: auto; }
+.site-nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+.site-nav a {
+  display: inline-block; padding: .4rem 0;
+  color: var(--bleu-fonce); font-weight: 600; text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+.site-nav a:hover { border-bottom-color: var(--bleu); }
+
+/* 4. BANDEAU D'ACCUEIL (photos en fondu enchaîné, CSS seul) -------------- */
+.hero {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 78vh;
+  padding: 4rem 1.5rem;
+  background: var(--bleu-fonce);
+  color: var(--blanc);
+  text-align: center;
+}
+.hero__slides { position: absolute; inset: 0; }
+.hero__slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0;
+  animation: diaporama calc(var(--duree-diapo) * 8) infinite;
+}
+/* voile bleu pour garder le texte lisible */
+.hero__slides::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(rgb(10 25 80 / .72), rgb(10 25 80 / .55));
+}
+.hero__slide--fond                  { background-image: url("../img/fonds/fond.jpg");                  animation-delay: calc(var(--duree-diapo) * 0); }
+.hero__slide--manifestation         { background-image: url("../img/fonds/manifestation.jpg");         animation-delay: calc(var(--duree-diapo) * 1); }
+.hero__slide--beffroi-arras         { background-image: url("../img/fonds/beffroi-arras.jpg");         animation-delay: calc(var(--duree-diapo) * 2); }
+.hero__slide--drapeaux-cftc         { background-image: url("../img/fonds/drapeaux-cftc.jpg");         animation-delay: calc(var(--duree-diapo) * 3); }
+.hero__slide--beffroi-groupe        { background-image: url("../img/fonds/beffroi-groupe.jpg");        animation-delay: calc(var(--duree-diapo) * 4); }
+.hero__slide--pas-de-calais-habitat { background-image: url("../img/fonds/pas-de-calais-habitat.jpg"); animation-delay: calc(var(--duree-diapo) * 5); background-position: center 30%; }
+.hero__slide--militants             { background-image: url("../img/fonds/militants.jpg");             animation-delay: calc(var(--duree-diapo) * 6); }
+.hero__slide--portrait-drapeaux     { background-image: url("../img/fonds/portrait-drapeaux.jpg");     animation-delay: calc(var(--duree-diapo) * 7); background-position: center 35%; }
+
+@keyframes diaporama {
+  0%     { opacity: 0; }
+  4%     { opacity: 1; }   /* fondu d'entrée */
+  12.5%  { opacity: 1; }   /* reste affiché */
+  16.5%  { opacity: 0; }   /* fondu de sortie, pendant l'entrée de la photo suivante */
+  100%   { opacity: 0; }
+}
+/* Accessibilité : pas d'animation, une seule photo fixe */
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide { animation: none; }
+  .hero__slide--fond { opacity: 1; }
+}
+
+.hero__content { position: relative; max-width: 52rem; }
+.hero h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgb(0 0 0 / .5);
+}
+.hero__slogan {
+  margin: 0 0 2rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 700;          /* gras */
+  text-align: center;        /* centré */
+}
+.hero__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 0; }
+
+/* 5. POST-IT ------------------------------------------------------------- */
+.postit {
+  position: relative; z-index: 2;
+  display: block; width: 13rem; margin: 2.5rem auto 0;
+  padding: 1.8rem 1.2rem 1.4rem;
+  background: linear-gradient(160deg, #fff59d, var(--postit));
+  color: #3b3200; text-decoration: none; text-align: center;
+  font: 700 1.25rem/1.3 "Segoe Print", "Bradley Hand", "Comic Sans MS", "Chalkboard SE", cursive;
+  box-shadow: 4px 8px 14px rgb(0 0 0 / .35);
+  transform: rotate(3deg);
+  transition: transform .2s;
+}
+.postit::before {            /* petit morceau de ruban adhésif */
+  content: ""; position: absolute; top: -.7rem; left: 50%;
+  width: 4rem; height: 1.4rem; transform: translateX(-50%) rotate(-3deg);
+  background: rgb(255 255 255 / .55);
+}
+.postit:hover, .postit:focus-visible { transform: rotate(0) scale(1.05); }
+.postit:focus-visible { outline: 3px solid var(--blanc); }
+
+@media (min-width: 1100px) {   /* grand écran : le post-it « colle » en haut à droite du bandeau */
+  .postit { position: absolute; top: 2rem; right: 3rem; margin: 0; }
+}
+
+/* 6. CONTACTS ------------------------------------------------------------ */
+.contacts { max-width: var(--largeur-max); margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+.contacts h2 { margin: 0 0 2rem; font-size: 2rem; color: var(--bleu-fonce); }
+.contacts__list {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.contact {
+  display: flex; flex-direction: column; gap: .3rem;
+  padding: 1.2rem 1rem;
+  background: var(--bleu-clair);
+  border-top: 4px solid var(--bleu);
+  border-radius: .4rem;
+}
+.contact__name { font-weight: 700; color: var(--bleu-fonce); }
+.contact a { font-size: 1.2rem; font-weight: 600; }
+.contacts__mail { margin: 2rem 0 0; font-size: 1.2rem; }
+
+/* 7. PIED DE PAGE -------------------------------------------------------- */
+.site-footer {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem;
+  padding: 2rem 1.5rem;
+  background: var(--bleu-fonce); color: var(--blanc); text-align: center;
+}
+.site-footer img { height: 4.5rem; width: auto; background: var(--blanc); border-radius: .4rem; padding: .3rem; }
+.site-footer p { margin: 0; }
+
+/* 8. PAGE 404 ------------------------------------------------------------ */
+.notfound { max-width: 36rem; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+.notfound h1 { color: var(--bleu-fonce); }

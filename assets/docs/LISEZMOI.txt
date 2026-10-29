@@ -1,0 +1,6 @@
+Déposez ici les deux PDF liés depuis le site, avec EXACTEMENT ces noms :
+
+  profession-de-foi-2026.pdf        -> lien « Élections 2026 » et post-it
+  liste-des-candidats-2026.pdf      -> lien « Les candidats »
+
+Tant que ces fichiers sont absents, les liens renvoient une erreur 404.
