@@ -1,6 +1,6 @@
-Déposez ici les deux PDF liés depuis le site, avec EXACTEMENT ces noms :
+Déposez ici le PDF lié depuis le site, avec EXACTEMENT ce nom :
 
-  profession-de-foi-2026.pdf        -> lien « Élections 2026 » et post-it
-  liste-des-candidats-2026.pdf      -> lien « Les candidats »
+  profession-de-foi-2026.pdf        -> lien « Élections 2026 », post-it et bouton de la page « Les candidats »
 
-Tant que ces fichiers sont absents, les liens renvoient une erreur 404.
+Tant que ce fichier est absent, ces liens renvoient une erreur 404.
+La liste des candidats est une page du site (candidats.html), pas un PDF.

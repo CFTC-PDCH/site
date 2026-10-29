@@ -1,7 +1,7 @@
 /* ==========================================================================
    CFTC des personnels de Pas de Calais habitat – feuille de style
    Sommaire : 1. Variables · 2. Base · 3. En-tête · 4. Bandeau d'accueil
-              5. Post-it · 6. Contacts · 7. Pied de page · 8. Page 404
+              5. Post-it · 6. Contacts · 7. Pied de page · 8. Page 404 · 9. Page « Les candidats »
    ========================================================================== */
 
 /* 1. VARIABLES ----------------------------------------------------------- */
@@ -178,8 +178,44 @@ ul { list-style: none; margin: 0; padding: 0; }
   background: var(--bleu-fonce); color: var(--blanc); text-align: center;
 }
 .site-footer img { height: 4.5rem; width: auto; background: var(--blanc); border-radius: .4rem; padding: .3rem; }
-.site-footer p { margin: 0; }
+.site-footer__text { max-width: 44rem; font-size: .9rem; }
+.site-footer p { margin: .25rem 0; }
 
 /* 8. PAGE 404 ------------------------------------------------------------ */
 .notfound { max-width: 36rem; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
 .notfound h1 { color: var(--bleu-fonce); }
+
+/* 9. PAGE « LES CANDIDATS » ---------------------------------------------- */
+.page-title {
+  padding: 3.5rem 1.5rem 3rem;
+  background: linear-gradient(135deg, var(--bleu-fonce), var(--bleu));
+  color: var(--blanc); text-align: center;
+}
+.page-title h1 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.25; }
+.page-title__date {
+  display: inline-block; margin: 1rem 0 0; padding: .3rem 1.2rem;
+  background: var(--blanc); color: var(--bleu-fonce);
+  border-radius: 2rem; font-size: 1.2rem; font-weight: 700;
+}
+
+.colleges { max-width: var(--largeur-max); margin: 0 auto; padding: 3rem 1.5rem 1rem; display: grid; gap: 2rem; }
+.college { border: 1px solid #c9d8f0; border-radius: .6rem; overflow: hidden; box-shadow: 0 2px 8px rgb(0 0 0 / .08); }
+.college__head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1rem;
+  padding: 1rem 1.5rem; background: var(--bleu-fonce); color: var(--blanc);
+}
+.college__head h2 { margin: 0; font-size: 1.4rem; text-transform: uppercase; letter-spacing: .03em; }
+.college__parity { margin: 0; font-weight: 600; opacity: .9; }
+.college__lists { display: grid; grid-template-columns: 1fr 1fr; }
+.college__lists > div { padding: 1.2rem 1.5rem 1.5rem; }
+.college__lists > div + div { background: var(--bleu-clair); }
+.college h3 { margin: 0 0 .8rem; font-size: 1.05rem; color: var(--bleu); text-transform: uppercase; letter-spacing: .06em; }
+.college ol { margin: 0; padding-left: 1.6rem; }
+.college li { padding: .2rem 0; font-weight: 600; }
+.college li::marker { color: var(--bleu); font-weight: 700; }
+.vote-call { margin: 2rem 0 4rem; text-align: center; }
+.site-nav a[aria-current="page"] { border-bottom-color: var(--bleu); }
+
+@media (max-width: 600px) {
+  .college__lists { grid-template-columns: 1fr; }
+}
