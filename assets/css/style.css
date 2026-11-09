@@ -25,7 +25,13 @@ body {
   line-height: 1.6;
   color: var(--texte);
   background: var(--blanc);
+  /* pied de page toujours en bas de la fenêtre, même sur une page courte */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
+main { flex: 1 0 auto; }
 img { max-width: 100%; height: auto; }
 a { color: var(--bleu); }
 a:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; }
