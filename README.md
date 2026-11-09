@@ -14,6 +14,7 @@ Site statique (HTML + CSS, sans framework ni dépendance externe) hébergé sur 
 ├── .nojekyll                   Désactive Jekyll : les fichiers sont servis tels quels
 └── assets/
     ├── css/style.css           Toute la mise en forme (sections commentées)
+    ├── js/countdown.js         Décompte des pages d'attente (date cible dans le HTML)
     └── img/                    Logos et favicon
         └── fonds/              Photos du bandeau d'accueil
 ```

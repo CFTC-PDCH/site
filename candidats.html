@@ -40,8 +40,13 @@
 
     <!-- Page d'attente : à remplacer le 20 novembre (voir LISEZMOI-PUBLICATION.txt) -->
     <section class="waiting">
-      <p class="waiting__date" aria-hidden="true"><span>20</span> novembre</p>
       <h2>Rendez-vous le 20 novembre pour découvrir notre liste de candidats</h2>
+      <div class="countdown" data-target="2026-11-20T00:00:00+01:00" role="timer" aria-label="Temps restant avant le 20 novembre">
+        <div class="countdown__item"><span class="countdown__num" data-unit="days">--</span><span class="countdown__label" data-label="days">jours</span></div>
+        <div class="countdown__item"><span class="countdown__num" data-unit="hours">--</span><span class="countdown__label" data-label="hours">heures</span></div>
+        <div class="countdown__item"><span class="countdown__num" data-unit="minutes">--</span><span class="countdown__label" data-label="minutes">minutes</span></div>
+        <div class="countdown__item"><span class="countdown__num" data-unit="seconds">--</span><span class="countdown__label" data-label="seconds">secondes</span></div>
+      </div>
       <p><a class="button" href="index.html">Retour à l’accueil</a></p>
     </section>
 
@@ -56,5 +61,6 @@
       <p>Site développé et administré par Nicolas Chappe · Hébergement : GitHub Pages (GitHub, Inc.)</p>
     </div>
   </footer>
+  <script src="assets/js/countdown.js" defer></script>
 </body>
 </html>
