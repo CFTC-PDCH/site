@@ -7,8 +7,8 @@ Site statique (HTML + CSS, sans framework ni dépendance externe) hébergé sur 
 ```
 .
 ├── index.html                  Page d'accueil (contenu)
-├── candidats.html              Liste des candidats (page d'attente jusqu'au 20 novembre)
-├── profession-de-foi.html      Profession de foi (page d'attente jusqu'au 20 novembre)
+├── candidats.html              Liste des candidats
+├── profession-de-foi.html      Profession de foi (PDF dans assets/docs/)
 ├── 404.html                    Page d'erreur
 ├── robots.txt
 ├── .nojekyll                   Désactive Jekyll : les fichiers sont servis tels quels
@@ -23,7 +23,7 @@ Site statique (HTML + CSS, sans framework ni dépendance externe) hébergé sur 
 
 - **Texte, contacts, liens** : `index.html` (une ligne `<li class="contact">` par contact).
 - **Couleurs, tailles, post-it** : `assets/css/style.css` (variables en haut du fichier).
-- **Candidats et profession de foi** : pages d'attente jusqu'au 20 novembre, puis voir `publication-20-novembre/LISEZMOI-PUBLICATION.txt` (dossier fourni à part, à ne pas mettre dans le dépôt avant la date).
+- **Profession de foi** : déposer `profession-de-foi-2026.pdf` dans `assets/docs/`.
 - **Photos du bandeau** : `assets/img/fonds/` et blocs `.hero__slide--…` du CSS.
 
 ## Publication
