@@ -8,13 +8,14 @@ Site statique (HTML + CSS, sans framework ni dépendance externe) hébergé sur 
 .
 ├── index.html                  Page d'accueil (contenu)
 ├── candidats.html              Liste des candidats
-├── profession-de-foi.html      Profession de foi (PDF dans assets/docs/)
+├── profession-de-foi.html      Profession de foi (affiche le PDF)
 ├── 404.html                    Page d'erreur
 ├── robots.txt
 ├── .nojekyll                   Désactive Jekyll : les fichiers sont servis tels quels
 └── assets/
     ├── css/style.css           Toute la mise en forme (sections commentées)
-    ├── js/countdown.js         Décompte des pages d'attente (date cible dans le HTML)
+    ├── js/countdown.js         Décompte (plus utilisé depuis le 20 novembre)
+    ├── docs/                   profession-de-foi-2026.pdf
     └── img/                    Logos et favicon
         └── fonds/              Photos du bandeau d'accueil
 ```
@@ -23,7 +24,7 @@ Site statique (HTML + CSS, sans framework ni dépendance externe) hébergé sur 
 
 - **Texte, contacts, liens** : `index.html` (une ligne `<li class="contact">` par contact).
 - **Couleurs, tailles, post-it** : `assets/css/style.css` (variables en haut du fichier).
-- **Profession de foi** : déposer `profession-de-foi-2026.pdf` dans `assets/docs/`.
+- **Profession de foi** : remplacer `assets/docs/profession-de-foi-2026.pdf` (même nom).
 - **Photos du bandeau** : `assets/img/fonds/` et blocs `.hero__slide--…` du CSS.
 
 ## Publication
